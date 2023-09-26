@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>projects page</title>
+
+      <link rel="stylesheet" href="css/style.css">
+      <style>
+        
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,600&family=Roboto:wght@300&family=Rubik+Iso&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+   box-sizing: border-box;
+   color: #d6d0d4;
+
+}
+
+h1{
+    text-align: center;
+    margin: 100px auto 50px;
+    font-weight: 600;
+
+}
+
+form{
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    height: 80px;
+    background: #353535;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+}
+form input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    padding: 0 30px;
+    filter: blur(0.5px);
+ 
+}
+
+form button{
+    padding: 0px 40px;
+    height: 100%;
+    background: #4423ff;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    filter: blur(0.5px);
+}
+::placeholder{
+    color: rgb(14, 13, 13);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#show-more-btn{
+   background: #ff3929; 
+   color: white;
+   border: 0;
+   outline: 0;
+   padding: 10px 20px;
+   border-radius: 4px;
+   margin: 10px auto 100px;
+   display: none;
+}
+
+#show-more-btn:hover{
+    background-color: azure;
+
+}
+    
+
+#search-result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+#search-result img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+@media(max-width:800px){
+
+    #search-result{
+        width: 100%;
+        margin: 100px auto 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-gap: 40px;
+    }
+    #search-result img{
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+
+    @media(max-width:600px){
+
+       
+        #search-result{
+            width: 100%;
+            margin: 10px auto 20px;
+            display: grid;
+            grid-template-columns: 1fr  ;
+            grid-gap: 40px;
+        }
+        #search-result img{
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        form{
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            height: 80px;
+            background: #353535;
+            display: flex;
+            align-items: center;
+            border-radius: 9px;
+        }
+        
+form button{
+    padding: 0px 11px;
+    height: 100%;
+    background: #ff23ae;
+    color: white;
+    font-size: 12px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+form input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 8px;
+    padding: 0 15px;
+}
+
+
+ span#element{
+    color: rgb(186, 29, 29);
+    font-weight: bolder;
+    font-size: 25px;
+}
+h1{
+    font-size: 15px;
+}
+}
+
+
+
+
+
+
+
+
+form button:hover{
+    background: #39294b;
+}
+
+
+
+
+#element{
+    color: blueviolet;
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </style>  
+
+</head>
+<body>
+    <div class="header">
+        <img src="img/menu.png" alt="" id="menuIcon">
+        <div class="logo">
+            <img src="img/imrantextolgo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu-box" id="menuBox">
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+    
+                <li><a href="projects">projects</a></li>
+                <li><a href="contact">Contact us</a></li>
+            </ul>
+        </div>
+            
+  </div>
+
+
+
+
+
+
+ <h1>GET IMAGES FROM <span id="element"></span>
+</h1>
+<form id="search-form">
+  <input type="text" id="search-box">
+  <button>search</button>
+</form>
+<div id="search-result"></div>  
+<button id="show-more-btn">show more</button>
+
+<div>
+  <button class="next"> <a href="projects2">Next</a></button>
+</div>
+
+
+ {{!-- <div class="copyright">
+        <p>@copyright this portfolio is made by imran!</p>
+      </div> --}}
+
+
+
+
+
+
+
+    <script>
+
+
+
+const accessKey = "8hiVPzcJkYvnC_ORUJ4xQSA7c7omnompa6qaioxdcjQ";
+
+const searchForm = document.getElementById("search-form");
+const searchBox = document.getElementById("search-box"); 
+const searchResult = document.getElementById("search-result"); 
+const searchMoreBtn = document.getElementById("show-more-btn");
+
+let keyword = "";
+let page = 1;
+
+async function searchImages() {
+  keyword = searchBox.value;
+  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}&per_page=12`;
+
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const results=data.results;
+    results.map((result)=>{
+        const image=document.createElement("img");
+        image.src=result.urls.small;
+        const imageLink=document.createElement("a");
+        imageLink.href=result.links.html;
+        imageLink.target="_blank";
+
+        imageLink.appendChild(image);
+        searchResult.appendChild(imageLink)
+    })
+    searchMoreBtn.style.display="block"
+
+
+}
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  page = 1;
+  searchImages();
+});
+
+searchMoreBtn.addEventListener("click",()=>{
+    page++;
+    searchImages();
+
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+      let menuBox = document.getElementById("menuBox"); // Change to "menuBox" (capital B)
+let menuIcon = document.getElementById("menuIcon"); // Change to "menuIcon" (capital I)
+
+menuIcon.onclick = function () {
+    menuBox.classList.toggle("open-menu"); // Change to "menuBox" (capital B)
+
+    if (menuBox.classList.contains("open-menu")) {
+        menuIcon.src = "img/close.png";
+    } else {
+        menuIcon.src = "img/menu.png";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>error page</title>
+      <link rel="stylesheet" href="css/style.css">  
+<style>
+    .next55{
+     
+        display: inline-block;
+       
+      border: 2px solid rgb(234, 229, 229);
+      padding: 9px 100px;
+     
+      margin: 25px auto;
+      font-weight: bolder;
+      font-size: 18px;
+      border-radius: 11px;
+      cursor: pointer;
+     
+    }
+    .next55 a{
+        text-decoration: none;
+    }
+    .next55:hover{
+        background-color: #0e0e0e;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/menu.png" alt="" id="menuIcon">
+        <div class="logo">
+            <img src="img/imrantextolgo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu-box" id="menuBox">
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+    
+                <li><a href="projects">projects</a></li>
+                <li><a href="contact">Contact us</a></li>
+            </ul>
+        </div>
+            
+  </div>
+
+
+
+<div class="background-element">
+
+
+   <button class="next55"> <a href="/">Back To Home Page</a></button>
+    
+</div>
+
+
+ 
+
+{{!-- <div>
+  <button class="next55"> <a href="projects2">Next</a></button>
+</div> --}}
+ {{!-- <div class="copyright">
+        <p>@copyright this portfolio is made by imran!</p>
+      </div> --}}
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+var tablinks = document.getElementsByClassName('tab-links');
+var tabcontents = document.getElementsByClassName('tab-content');
+
+function opentab(tabname) {
+  for (tablink of tablinks) {
+    tablink.classList.remove("active-links"); // Corrected class name
+  }
+
+  for (tabcontent of tabcontents) {
+    tabcontent.classList.remove("active-tab");
+  }
+
+  event.currentTarget.classList.add("active-links"); // Corrected class name
+  document.getElementById(tabname).classList.add("active-tab");
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+      let menuBox = document.getElementById("menuBox"); // Change to "menuBox" (capital B)
+let menuIcon = document.getElementById("menuIcon"); // Change to "menuIcon" (capital I)
+
+menuIcon.onclick = function () {
+    menuBox.classList.toggle("open-menu"); // Change to "menuBox" (capital B)
+
+    if (menuBox.classList.contains("open-menu")) {
+        menuIcon.src = "img/close.png";
+    } else {
+        menuIcon.src = "img/menu.png";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

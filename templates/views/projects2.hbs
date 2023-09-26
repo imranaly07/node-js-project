@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>project 2</title>
+      <link rel="stylesheet" href="css/style.css">  
+      <style>
+        
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,600&family=Roboto:wght@300&family=Rubik+Iso&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+   box-sizing: border-box;
+   color: #d6d0d4;
+
+}
+body{
+    background: linear-gradient(135deg,#00feba,#240ad2);
+
+}
+
+
+.search{
+    
+ 
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    height: 60px;
+    background: #353535;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+}
+.search input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 23px;
+    padding: 0 30px;
+  
+}
+.search button{
+    border: 0;
+    outline: none;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.search button img{
+    width: 18px;
+}
+
+form button{
+    padding: 0px 40px;
+    height: 100%;
+    background: #4423ff;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    filter: blur(0.5px);
+}
+/* ......................... */
+
+.weathercon{
+ 
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.weathercon img{
+   width: 1500px;
+border-radius: 17px;
+   align-items: center;
+   height: 90vh;
+   padding-bottom: 50px;
+}
+h1{
+    text-align: center;
+    font-size: 37px;
+    font-weight: bolder;
+    padding: 3px 0;
+}
+
+h2{
+    text-align: center;
+    font-size: 27px;
+    font-weight: bolder;
+    padding: 2px 0;
+    filter: blur(0.5);
+ 
+}
+.search button:hover{
+    background-color: gray;
+}
+span{
+  color: #353535;
+}
+.footer{
+    background: linear-gradient(135deg,#00feba,#240ad2);
+
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+/* .................mediaqurey.............. */
+
+@media(max-width:1300px){
+    .weathercon img{
+        width: 500px;
+     border-radius: 17px;
+        align-items: center;
+        height: 90vh;
+        padding-bottom: 1px;
+     }
+     h1{
+         text-align: center;
+         font-size: 19px;
+         font-weight: bolder;
+         padding: 1px 0;
+     }
+     
+     h2{
+         text-align: center;
+         font-size: 17px;
+         font-weight: bolder;
+         padding: 1px 0;
+         filter: blur(0.5);
+      
+     }
+}
+
+    .next2{
+        background-color: #676767;
+      border: 2px solid rgb(234, 229, 229);
+      padding: 9px 25px;
+      float: right;
+    margin: 0px 20px 10px 0;
+      font-weight: bolder;
+      font-size: 18px;
+      border-radius: 11px;
+      cursor: pointer;
+     
+    }
+    .next2 a{
+        text-decoration: none;
+    }
+    .next2:hover{
+        background-color: #0e0e0e;
+        color: white;
+    }
+
+
+      </style>
+
+</head>
+<body>
+    <div class="header">
+        <img src="img/menu.png" alt="" id="menuIcon">
+        <div class="logo">
+            <img src="img/imrantextolgo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu-box" id="menuBox">
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+    
+                <li><a href="projects">projects</a></li>
+                <li><a href="contact">Contact us</a></li>
+            </ul>
+        </div>
+            
+  </div>
+
+ <div class="search">
+        <input type="text" id="" placeholder="Enter your city" spellcheck="false">
+        <button><img src="img/search.png" alt=""></button>
+    </div>
+    <div class="weathercon">
+        <div class="iteam">
+        <h1 class="temp">See weather of your city with image</h1>
+        <h2 class="city"><span id="element"></span></h2>
+
+        <img src="img/rain.jpg" class="weather-icon">
+    </div>
+    </div>
+
+<div>
+  {{!-- <button class="next2"> <a href="projects">Next</a></button> --}}
+</div>
+ <footer class="footer">&copy;This Website is made by Imran Aly</footer>
+
+
+
+
+
+
+
+
+    
+
+
+
+ 
+
+
+ {{!-- <div class="copyright">
+        <p>@copyright this portfolio is made by imran!</p>
+      </div> --}}
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+const apiKey="135b0644d1b23d846116ca31765f036a";
+        const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q="
+        const searchBox=document.querySelector(".search input")
+        const btn=document.querySelector(".search button")
+        const weatherIcon=document.querySelector(".weather-icon")
+        
+        
+        
+        
+        
+        
+        
+        async function checkweather(city) {
+          const response=await fetch(apiUrl + city  +`&appid=${apiKey}`);
+          var data=await response.json();
+          console.log(data)
+        
+
+          document.querySelector(".city").innerHTML=data.name;
+
+          document.querySelector(".temp").innerHTML=Math.round(data.main.temp) +"°c";
+
+
+
+
+
+          if (data.weather[0].main == "Clouds") {
+  weatherIcon.src = "img/clouds.jpg";
+} else if (data.weather[0].main == "Clear") {
+  weatherIcon.src = "img/clear.jpg";
+} else if (data.weather[0].main == "Mist") {
+  weatherIcon.src = "img/mist.jpg";
+} else if (data.weather[0].main == "Rain") {
+  weatherIcon.src = "img/rain.jpg";
+} else if (data.weather[0].main == "Drizzle") {
+  weatherIcon.src = "img/drizzle.jpg";
+} else if (data.weather[0].main == "Snow") {
+  weatherIcon.src = "img/snow.jpg";
+}
+
+else{
+  weatherIcon.src = "img/md.png";
+
+}
+
+ }
+btn.addEventListener("click",()=>{
+  checkweather(searchBox.value)
+
+
+})
+
+</script>
+
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed('#element', {
+      strings: ['just  Typing Your City Name',],
+      typeSpeed: 100,
+      loop: true,
+    });
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+      let menuBox = document.getElementById("menuBox"); // Change to "menuBox" (capital B)
+let menuIcon = document.getElementById("menuIcon"); // Change to "menuIcon" (capital I)
+
+menuIcon.onclick = function () {
+    menuBox.classList.toggle("open-menu"); // Change to "menuBox" (capital B)
+
+    if (menuBox.classList.contains("open-menu")) {
+        menuIcon.src = "img/close.png";
+    } else {
+        menuIcon.src = "img/menu.png";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

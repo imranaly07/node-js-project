@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>conatact us page</title>
+      <link rel="stylesheet" href="css/style.css">  
+
+</head>
+<body>
+    <div class="header">
+        <img src="img/menu.png" alt="" id="menuIcon">
+        <div class="logo">
+            <img src="img/imrantextolgo-removebg-preview.png" alt="">
+        </div>
+        <div class="menu-box" id="menuBox">
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+    
+                <li><a href="projects">projects</a></li>
+                <li><a href="contact">Contact us</a></li>
+            </ul>
+        </div>
+            
+  </div>
+
+
+
+
+
+ <div id="contact">
+      <div class="conatiner">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-tittle">Contact me</h1>
+            <p><i class="fa-regular fa-paper-plane"></i>imranmd05012002@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i>6209410566</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="img/imrantextolgo-removebg-preview.png" download
+              class="btn btn2">Download CV</a>
+          </div>
+          <div class="contact-right">
+            <form action="/" method="post">
+              <input type="text" name="name" id placeholder="Your Name" required>
+              <input type="email" name="email" id placeholder="Your Email"
+                required>
+              <textarea name="message" id cols="30" rows="10"
+                placeholder="Your message"></textarea>
+              <button type="submit" class="btn btn2">submit</button>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+ 
+
+
+ {{!-- <div class="copyright">
+        <p>@copyright this portfolio is made by imran!</p>
+      </div> --}}
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+var tablinks = document.getElementsByClassName('tab-links');
+var tabcontents = document.getElementsByClassName('tab-content');
+
+function opentab(tabname) {
+  for (tablink of tablinks) {
+    tablink.classList.remove("active-links"); // Corrected class name
+  }
+
+  for (tabcontent of tabcontents) {
+    tabcontent.classList.remove("active-tab");
+  }
+
+  event.currentTarget.classList.add("active-links"); // Corrected class name
+  document.getElementById(tabname).classList.add("active-tab");
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+      let menuBox = document.getElementById("menuBox"); // Change to "menuBox" (capital B)
+let menuIcon = document.getElementById("menuIcon"); // Change to "menuIcon" (capital I)
+
+menuIcon.onclick = function () {
+    menuBox.classList.toggle("open-menu"); // Change to "menuBox" (capital B)
+
+    if (menuBox.classList.contains("open-menu")) {
+        menuIcon.src = "img/close.png";
+    } else {
+        menuIcon.src = "img/menu.png";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
